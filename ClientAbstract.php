@@ -53,7 +53,7 @@ abstract class ClientAbstract extends BaseObject
     public function init()
     {
         /** @var MapAsset|null $mapBundle */
-        $mapBundle = @Yii::$app->getAssetManager()->getBundle(MapAsset::className());
+        $mapBundle = @Yii::$app->getAssetManager()->getBundle(MapAsset::class);
         if ($mapBundle) {
             $this->params = array_merge($this->params, $mapBundle->options);
         }
@@ -83,7 +83,7 @@ abstract class ClientAbstract extends BaseObject
                 ->get($this->getUrl(), ['query' => $params], $options);
 
             return trim($this->format) === 'json'
-                ? json_decode($response->getBody(), true)
+                ? json_decode($response->getBody())
                 : simplexml_load_string($response->getBody());
         } catch (RequestException $e) {
             return null;
