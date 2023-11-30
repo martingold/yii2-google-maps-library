@@ -30,6 +30,9 @@
         "guzzlehttp/guzzle": "6.* || 7.*",
         "ext-SimpleXML": "^7.2 || ^8.0"
     },
+    "replace": {
+        "2amigos/yii2-google-maps-library": "self.version"
+    },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.10@dev",
         "roave/security-advisories": "dev-master"
